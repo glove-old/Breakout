@@ -1,6 +1,7 @@
 package dev.jacktrowbridge.breakout.utils.plots;
 
 import dev.jacktrowbridge.breakout.Breakout;
+import dev.jacktrowbridge.breakout.utils.blocks.BlocksUtils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -77,7 +78,7 @@ public class PlotUtils {
         for(int i = _upperLeftZ; i < plotSize + _upperLeftZ; i++) {
             for(int i2 = _upperLeftX; i2 < plotSize + _upperLeftX; i2++) {
 
-                player.getWorld().getBlockAt(i2, 100, i).setType(Material.STONE);
+                player.getWorld().getBlockAt(i2, 100, i).setType(Material.STONE_BRICKS);
 
                 if(i == _upperLeftZ || i == plotSize + _upperLeftZ - 1 || i2 == _upperLeftX || i2 == plotSize + _upperLeftX - 1){
                     for(int i3 = -64; i3 < 319; i3++){
@@ -87,6 +88,9 @@ public class PlotUtils {
 
             }
         }
+
+        BlocksUtils blocksUtils = new BlocksUtils();
+        blocksUtils.generateRandomBlockClump(new Location(player.getWorld(), x, 100, z), 5, 10, Material.COAL_ORE);
 
     }
 
