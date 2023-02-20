@@ -2,41 +2,49 @@ package dev.jacktrowbridge.breakout;
 
 import dev.jacktrowbridge.breakout.commands.plots.ClearPlotCacheCommand;
 import dev.jacktrowbridge.breakout.commands.plots.CreatePlotCommand;
-import dev.jacktrowbridge.breakout.events.player.PlayerConnectEvent;
-import dev.jacktrowbridge.breakout.utils.plots.BreakoutPlot;
+import dev.jacktrowbridge.breakout.event.player.PlayerConnectEvent;
+import dev.jacktrowbridge.breakout.util.plot.BreakoutPlot;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.UUID;
 
-public final class Breakout extends JavaPlugin {
+@Getter
+public class Breakout extends JavaPlugin {
 
-    HashMap<UUID, BreakoutPlot> plotCache = new HashMap<>();
+    private final TreeMap<UUID, BreakoutPlot> plotCache = new TreeMap<>();
 
+    /**
+     * Called when the plugin initializes
+     */
     @Override
     public void onEnable() {
-        // Plugin startup logic
         registerEvents();
         registerCommands();
     }
 
+    /**
+     * Called when the server is shutting down
+     */
     @Override
     public void onDisable() {
         // Plugin shutdown logic
     }
 
-    void registerEvents(){
+    /**
+     * Registers all the event handlers for Breakout
+     */
+    private void registerEvents(){
         new PlayerConnectEvent(this);
     }
 
-    void registerCommands(){
+    /**
+     * Registers all the custom commands for Breakout
+     */
+    private void registerCommands(){
         new CreatePlotCommand(this);
         new ClearPlotCacheCommand(this);
-    }
-
-    // Getters
-    public HashMap<UUID, BreakoutPlot> getPlotCache() {
-        return plotCache;
     }
 
 }

@@ -1,14 +1,22 @@
-package dev.jacktrowbridge.breakout.utils.blocks;
+package dev.jacktrowbridge.breakout.util.block;
 
+import lombok.experimental.UtilityClass;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import java.util.ArrayList;
+@UtilityClass
+public class BlockUtils {
 
-public class BlocksUtils {
-
+    /**
+     * Generates a random block clump with the provided parameters
+     *
+     * @param center The location of the center block
+     * @param radius The radius of the clump
+     * @param numBlocks The amount of blocks to use
+     * @param blockType The material to use for the clump
+     */
     public void generateRandomBlockClump(Location center, int radius, int numBlocks, Material blockType) {
         World world = center.getWorld();
 

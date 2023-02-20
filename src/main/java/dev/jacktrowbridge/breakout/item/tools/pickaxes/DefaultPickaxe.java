@@ -1,7 +1,7 @@
-package dev.jacktrowbridge.breakout.items.tools.pickaxes;
+package dev.jacktrowbridge.breakout.item.tools.pickaxes;
 
-import dev.jacktrowbridge.breakout.utils.item.BreakoutItem;
-import dev.jacktrowbridge.breakout.utils.item.ItemTypes;
+import dev.jacktrowbridge.breakout.util.item.BreakoutItem;
+import dev.jacktrowbridge.breakout.util.item.ItemTypes;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Material;
 

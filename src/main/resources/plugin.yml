@@ -2,3 +2,4 @@ name: Breakout
 version: '${version}'
 main: dev.jacktrowbridge.breakout.Breakout
 api-version: 1.19
+load: POSTWORLD
